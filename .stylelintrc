@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-manzdev",
+  "rules": {
+    "import-notation": null,
+    "no-descending-specificity": null
+  }
+}
