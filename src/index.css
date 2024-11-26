@@ -1,3 +1,155 @@
+@import "@fontsource-variable/montserrat";
+
+:root {
+  --dark-bgcolor: #1e1c26;
+  --light-bgcolor: #252331;
+  --hover-icon-color: #1653ff;
+  --dark-text-color: #686a87;
+  --default-font: montserrat, sans-serif;
+}
+
 body {
   background: #171717;
+  font-family: var(--default-font);
+}
+
+/* Esta es la parte general de mi diseño */
+.chat-container {
+  width: 300px;
+  min-height: 600px;
+  background: var(--light-bgcolor);
+  border-radius: 25px;
+  overflow: hidden;
+
+  /* perspective: 800px; */
+}
+
+/* Estas son las partes internas del chat */
+.chat-header {
+  display: flex;
+  flex-direction: row;    /* Se puede omitir, es el default */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  & h1 {
+    color: #fff;
+    margin: 0;
+  }
+
+  & .icon:hover {
+    cursor: pointer;
+
+    path {
+      stroke: var(--hover-icon-color);
+    }
+  }
+}
+
+.search-bar {
+  margin: 0 1rem;
+
+  & input {
+    background-color: var(--dark-bgcolor);
+    background-image: url("images/magnifier.svg");
+    background-repeat: no-repeat;
+    background-position: left 8px center;
+    background-size: 25px 25px;
+    border: 0;
+    padding: 1rem;
+    padding-left: 2.5rem;
+    font-weight: 300;
+    width: 100%;
+    color: #fff;
+    border-radius: 8px;
+    font-family: var(--default-font);
+
+    &::placeholder {
+      color: var(--dark-text-color);
+    }
+  }
+}
+
+.user-list {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+
+  /* transform: rotateX(10deg); */
+
+  & .user-container {
+    display: flex;
+    gap: 1rem;
+
+    & .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    & .text-container {
+      & h2 {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #fff;
+        margin: 0;
+      }
+
+      & p {
+        font-size: 0.8rem;
+        font-weight: 300;
+        color: var(--dark-text-color);
+        margin: 0;
+      }
+    }
+  }
+
+  & .add-button {
+    --size: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.75rem;
+    background-color: #1f5ffb;
+    background-image: radial-gradient(circle at 75% 75%, #284ad1 35%, #4279e8);
+    border-radius: 50%;
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    box-shadow: 0 0 15px #1f5dfbb1;
+    bottom: -5px;
+    right: -5px;
+  }
+}
+
+.menu-bar {
+  display: flex;
+  justify-content: space-around;
+  background: var(--dark-bgcolor);
+  padding: 1rem 1rem 1.25rem;
+
+  & .icon {
+    scale: 0.85;
+
+    &.calendar {
+      scale: 0.75;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      & path {
+        stroke: #fff;
+      }
+    }
+
+    & path {
+      stroke: var(--dark-text-color);
+    }
+  }
 }
